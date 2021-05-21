@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPO_college"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="300" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Войти как преподователь" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,134,10,0" Height="40"/>
-        <Button Content="Войти как ученик" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,222,10,0" Height="40"/>
-
+        
     </Grid>
 </Window>
