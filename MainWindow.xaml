@@ -7,8 +7,22 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="300" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Войти как преподователь" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,134,10,0" Height="40"/>
-        <Button Content="Войти как ученик" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,222,10,0" Height="40"/>
-
+        <Grid x:Name="login" Visibility="Hidden">
+            <Button Content="Войти как преподователь" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,134,10,0" Height="40"/>
+            <Button Content="Войти как ученик" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,222,10,0" Height="40"/>
+        </Grid>
+        <Grid x:Name="stud" Visibility="Hidden">
+            <Button Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,371,10,0" Height="40"/>
+            <TextBox HorizontalAlignment="Center" Height="40" Margin="10,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
+            <Label Content="Логин (имя)" HorizontalAlignment="Left" Margin="15,154,0,0" VerticalAlignment="Top" Width="88"/>
+        </Grid>
+        <Grid x:Name="thcr">
+            <Label Content="Логин" HorizontalAlignment="Left" Margin="15,159,0,0" VerticalAlignment="Top" Width="88"/>
+            <TextBox HorizontalAlignment="Center" Height="40" Margin="15,185,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
+            
+            <Label Content="Пароль" HorizontalAlignment="Left" Margin="15,230,0,0" VerticalAlignment="Top" Width="88"/>
+            <TextBox HorizontalAlignment="Center" Height="40" Margin="15,256,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
+            <Button Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Top" Width="274" Margin="10,371,10,0" Height="40"/>
+        </Grid>
     </Grid>
 </Window>
