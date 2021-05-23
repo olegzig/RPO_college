@@ -24,5 +24,17 @@ namespace RPO_college
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            login.Visibility = Visibility.Hidden;
+            thcr.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            login.Visibility = Visibility.Hidden;
+            stud.Visibility = Visibility.Visible;
+        }
     }
 }
