@@ -52,5 +52,12 @@ namespace RPO_college
                 login.Visibility = Visibility.Visible;
             }
         }
+
+        private void Button_Loin(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+            this.Close();
+        }
     }
 }

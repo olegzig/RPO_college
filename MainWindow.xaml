@@ -50,7 +50,7 @@
             <Label Grid.Row="1" Content="Логин (имя)"/>
             <TextBox Grid.Row="2"/>
 
-            <Button Grid.Row ="3" Content="Войти"/>
+            <Button Grid.Row ="3" Content="Войти" Click="Button_Loin"/>
 
             <Button Grid.Row="5" Content="Назад" Background="LightBlue" Click="Button_Back"/>
         </Grid>
@@ -72,8 +72,8 @@
 
             <Label Grid.Row="3" Content="Пароль" Margin="5,0,5,0"/>
             <TextBox Grid.Row="4"/>
-            
-            <Button Grid.Row="5" Content="Войти"/>
+
+            <Button Grid.Row="5" Content="Войти" Click="Button_Loin"/>
             
             <Button Grid.Row="9" Content="Назад" Background="LightBlue" Click="Button_Back"/>
         </Grid>
