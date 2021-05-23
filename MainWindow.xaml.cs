@@ -36,5 +36,21 @@ namespace RPO_college
             login.Visibility = Visibility.Hidden;
             stud.Visibility = Visibility.Visible;
         }
+
+        private void Button_Back(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+
+            if(btn.Parent == stud)
+            {
+                stud.Visibility = Visibility.Hidden;
+                login.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                thcr.Visibility = Visibility.Hidden;
+                login.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
