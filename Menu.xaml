@@ -5,26 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPO_college"
         mc:Ignorable="d"
-        Title="Menu" Height="450" Width="800">
+        Title="Menu" Height="450" Width="550" MinHeight="350" MinWidth="450">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="10"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="MinHeight" Value="35"/>
             <Setter Property="FontSize" Value="15"/>
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Margin" Value="5,5,5,0"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="10,0,10,0"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="FontSize" Value="19"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
     
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Получить перечень и общее число студентов указанных групп либоуказанного курса (курсов) факультета полностью, по половому признаку,
+году рождения, возрасту, признаку наличия детей, по признаку получения
+и размеру стипендии.-->
+        <Button Grid.Column="0" Grid.Row="0" Content="Учащиеся"/>
+        <!--Получить список и общее число преподавателей указанных кафедр либо
+указанного факультета полностью, либо указанных категорий
+(ассистенты, доценты, профессора и т.д.) по половому признаку, году
+рождения, возрасту, признаку наличия и количеству детей, размеру
+заработной платы, являющихся аспирантами, защитивших кандидатские,
+докторские диссертации в указанный период.-->
+        <Button Grid.Column="1" Grid.Row="0" Content="Преподователи"/>
+        <!--Получить перечень и общее число тем кандидатских и докторских
+диссертаций, защитивших сотрудниками указанной кафедры либо
+указанного факультета.-->
+        <Button Grid.Column="2" Grid.Row="0" Content="Диссертации"/>
+        <!--Получить перечень кафедр, проводящих занятия в указанной группе либо
+на указанном курсе указанного факультета в указанном семестре, либо за
+указанный период-->
+        <Button Grid.Column="0" Grid.Row="1" Content="Кафедры"/>
+        <!--Получить список и общее число преподавателей, проводивших
+(проводящих) занятия по указанной дисциплине в указанной группе либо
+на указанном курсе указанного факультета.-->
+        <Button Grid.Column="1" Grid.Row="1" Content="Преподователи и&#xa;дисциплины"/>
+        <!--Получить перечень и общее число преподавателей проводивших
+(проводящих) лекционные, семинарские и другие виды занятий в
+указанной группе либо на указанном курсе указанного факультета в
+указанном семестре, либо за указанный период.-->
+        <Button Grid.Column="2" Grid.Row="1" Content="Преподователи и занятия"/>
+        <!--Получить список и общее число студентов указанных групп, сдавших
+зачет либо экзамен по указанной дисциплине с указанной оценкой.-->
+        <Button Grid.Column="0" Grid.Row="2" Content="Учащиеся и их оценки"/>
+        <!--Получить список и общее число студентов указанных групп или
+указанного курса указанного факультета, сдавших указанную сессию на
+отлично, без троек, без двоек.-->
+        <Button Grid.Column="1" Grid.Row="2" Content="Отличники"/>
+        <!--Получить перечень преподавателей, принимающих (принимавших)
+экзамены в указанных группах, по указанным дисциплинам, в указанном
+семестре.-->
+        <Button Grid.Column="2" Grid.Row="2" Content="Экзаменаторы"/>
+        <!--Получить список студентов указанных групп, либо которым заданный
+преподаватель поставил некоторую оценку за экзамен по определенным
+дисциплинам, в указанных семестрах, за некоторый период.-->
+        <Button Grid.Column="0" Grid.Row="3" Content="Экзаменаторы и оценки" />
+        <!--Получить список студентов и тем дипломных работ, выполняемых ими на
+указанной кафедре либо у указанного преподавателя.-->
+        <Button Grid.Column="1" Grid.Row="3" Content="Дипломные работы"/>
+        <!--Получить список руководителей дипломных работ с указанной кафедры,
+либо факультета полностью и раздельно по некоторым категориям
+преподавателей-->
+        <Button Grid.Column="2" Grid.Row="3" Content="Рудоводители дипломных&#xa;работ"/>
+        <!--Получить нагрузку преподавателей (название дисциплины, количество
+часов), ее объем по отдельным видам занятий и общую нагрузку в
+указанном семестре для конкретного преподавателя либо для
+преподавателей указанной кафедры.-->
+        <Button Grid.Column="1" Grid.Row="4" Content="Нагрузка преподователей"/>
+        <Button Grid.Column="0" Grid.Row="4" Content="Разлогинится" Background="LightBlue"/>
+        <Button Grid.Column="2" Grid.Row="4" Content="Выйти" Background="IndianRed"/>
     </Grid>
 </Window>
