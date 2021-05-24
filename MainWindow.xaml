@@ -33,7 +33,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="1" Content="Войти как преподователь" Click="Button_Click"/>
+            <Button Grid.Row="1" Content="Войти как преподаватель" Click="Button_Click"/>
             <Button Grid.Row="2" Content="Войти как ученик" Click="Button_Click_1"/>
         </Grid>
 
