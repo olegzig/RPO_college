@@ -59,6 +59,5 @@ namespace RPO_college
             menu.Show();
             this.Close();
         }
-        
     }
 }

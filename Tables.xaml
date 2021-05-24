@@ -39,6 +39,6 @@
 
         <Button Grid.Column="1" Grid.Row="1" Content="Сохранить" Background="LightGreen"/>
         <Button Grid.Column="1" Grid.Row="2" Content="Перезагрузить" Background="LightYellow"/>
-        <Button Grid.Column="1" Grid.Row="3" Content="Назад" Background="LightBlue"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Назад" Background="LightBlue" Click="Button_Return"/>
     </Grid>
 </Window>

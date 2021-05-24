@@ -22,7 +22,6 @@ namespace RPO_college
         public Menu()
         {
             InitializeComponent();
-            Closed += CloseAll;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,23 +32,18 @@ namespace RPO_college
             switch (btn.Content)
             {
                 case "Учащиеся":
-                    this.Hide();
+                    this.Close();
                     tables.Show();
                     break;
                 case "Выйти":
                     Environment.Exit(0);
                     break;
                 case "Разлогинится":
-                    this.Hide();
+                    this.Close();
                     MainWindow window = new MainWindow();
                     window.Show();
                     break;
             }
-        }
-        private void CloseAll(object sender, EventArgs e)
-        {
-            MainWindow window = new MainWindow();
-            window.Show();
         }
     }
 }

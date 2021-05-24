@@ -22,7 +22,6 @@ namespace RPO_college
         public Tables()
         {
             InitializeComponent();
-            Closed += CloseAll;
         }
 
         private void Button_Return(object sender, RoutedEventArgs e)
@@ -30,11 +29,6 @@ namespace RPO_college
             Menu window = new Menu();
             window.Show();
             this.Close();
-        }
-        public void CloseAll(object sender, EventArgs e)
-        {
-            Menu window = new Menu();
-            window.Show();
         }
     }
 }
