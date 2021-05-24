@@ -23,7 +23,7 @@
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
     </Window.Resources>
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.2*"/>
@@ -32,11 +32,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.RowSpan="3" x:Name="table" AutoGenerateColumns="True" />
+        <DataGrid Grid.Row="0" Grid.RowSpan="4" x:Name="table" AutoGenerateColumns="True" />
 
         <Button Grid.Column="1" Grid.Row="1" Content="Сохранить" Background="LightGreen"/>
-        <Button Grid.Column="1" Grid.Row="2" Content="Назад" Background="LightBlue" Click="Button_Return"/>
+        <Button Grid.Column="1" Grid.Row="2" Content="Перезагрузить" Background="LightYellow"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Назад" Background="LightBlue"/>
     </Grid>
 </Window>
