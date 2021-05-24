@@ -57,7 +57,7 @@ namespace RPO_college
         {
             Menu menu = new Menu();
             menu.Show();
-            this.Visibility = Visibility.Hidden;
+            this.Close();
         }
     }
 }

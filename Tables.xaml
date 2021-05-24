@@ -37,6 +37,6 @@
         <DataGrid Grid.Row="0" Grid.RowSpan="3" x:Name="table" AutoGenerateColumns="True" />
 
         <Button Grid.Column="1" Grid.Row="1" Content="Сохранить" Background="LightGreen"/>
-        <Button Grid.Column="1" Grid.Row="2" Content="Назад" Background="LightBlue"/>
+        <Button Grid.Column="1" Grid.Row="2" Content="Назад" Background="LightBlue" Click="Button_Return"/>
     </Grid>
 </Window>
