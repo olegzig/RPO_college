@@ -31,10 +31,12 @@ namespace RPO_college
 
             switch (btn.Content)
             {
-                case "Учащиеся":
+                default:
                     this.Close();
+                    WhatWasChoosed.BUF = btn.Content.ToString();
                     tables.Show();
                     break;
+
                 case "Выйти":
                     Environment.Exit(0);
                     break;
@@ -46,21 +48,9 @@ namespace RPO_college
             }
         }
     }
+    public static class WhatWasChoosed 
+    {
+        public static string BUF;
+    }
+
 }
-/*
-        <Button Grid.Column="0" Grid.Row="0" Content="Учащиеся" Click="Button_Click"/>
-        <Button Grid.Column="1" Grid.Row="0" Content="Преподователи" Click="Button_Click"/>
-        <Button Grid.Column="2" Grid.Row="0" Content="Диссертации" Click="Button_Click"/>
-        <Button Grid.Column="0" Grid.Row="1" Content="Кафедры" Click="Button_Click"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="Преподователи и&#xa;дисциплины" Click="Button_Click"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="Преподователи и занятия" Click="Button_Click"/>
-        <Button Grid.Column="0" Grid.Row="2" Content="Учащиеся и их оценки" Click="Button_Click"/>
-        <Button Grid.Column="1" Grid.Row="2" Content="Отличники" Click="Button_Click"/>
-        <Button Grid.Column="2" Grid.Row="2" Content="Экзаменаторы" Click="Button_Click"/>
-        <Button Grid.Column="0" Grid.Row="3" Content="Экзаменаторы и оценки" Click="Button_Click"/>
-        <Button Grid.Column="1" Grid.Row="3" Content="Дипломные работы" Click="Button_Click"/>
-        <Button Grid.Column="2" Grid.Row="3" Content="Рудоводители дипломных&#xa;работ" Click="Button_Click"/>
-        <Button Grid.Column="1" Grid.Row="4" Content="Нагрузка преподователей" Click="Button_Click"/>
-        <Button Grid.Column="0" Grid.Row="4" Content="Разлогинится" Background="LightBlue" Click="Button_Click"/>
-        <Button Grid.Column="2" Grid.Row="4" Content="Выйти" Background="IndianRed" Click="Button_Click"/>
- */
