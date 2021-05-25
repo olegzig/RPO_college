@@ -22,15 +22,17 @@ namespace RPO_college
     public partial class Tables : Window
     {
         string getInfo;
+        string WWC;
         OleDbDataAdapter da;
         DataSet ds;
+        OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
         public Tables(string WhatWasCho)
         {
             InitializeComponent();
 
+            WWC = WhatWasCho;
             Closed += Close;
 
-            OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
             DataBase.Open();
             switch (WhatWasCho)
             {
@@ -172,6 +174,17 @@ namespace RPO_college
             catch
             {
                 //Hello world!
+            }
+        }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            switch (WWC)
+            {
+                case "Учащиеся":
+
+                    MessageBox.Show("save");
+                    break;
             }
         }
     }
