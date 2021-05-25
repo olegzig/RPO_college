@@ -31,14 +31,12 @@ namespace RPO_college
 
             string getInfo;
             OleDbDataAdapter da;
-            OleDbCommandBuilder cb;
             DataSet ds;
             switch (WhatWasCho)
             {
                 case "Учащиеся":
                     getInfo = "SELECT * FROM Учащиеся";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -48,7 +46,6 @@ namespace RPO_college
                 case "Преподователи":
                     getInfo = "SELECT * FROM Преподователи";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
@@ -58,7 +55,6 @@ namespace RPO_college
                 case "Диссертации":
                     getInfo = "SELECT * FROM Диссертации";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Диссертации]");
@@ -68,7 +64,6 @@ namespace RPO_college
                 case "Кафедры":
                     getInfo = "SELECT Группа, Кафедра FROM Занятия";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
@@ -78,7 +73,6 @@ namespace RPO_college
                 case "Преподователи и\nдисциплины":
                     getInfo = "SELECT ФИО, Кафедра FROM Преподователи";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
@@ -88,7 +82,6 @@ namespace RPO_college
                 case "Занятия":
                     getInfo = "SELECT * FROM Занятия";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
@@ -98,7 +91,6 @@ namespace RPO_college
                 case "Учащиеся и их оценки":
                     getInfo = "SELECT * FROM Оценки";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Оценки]");
@@ -108,7 +100,6 @@ namespace RPO_college
                 case "Отличники":
                     getInfo = "SELECT * FROM Оценки WHERE Оценка > 7";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -118,7 +109,6 @@ namespace RPO_college
                 case "Экзаменаторы":
                     getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
@@ -128,7 +118,6 @@ namespace RPO_college
                 case "Экзаменаторы и оценки":
                     getInfo = "SELECT * FROM [Экзамены и курсачи]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -138,7 +127,6 @@ namespace RPO_college
                 case "Дипломные работы":
                     getInfo = "SELECT Оценка, ФИО, Дициплина FROM[Дипломные работы]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Дипломные работы]");
@@ -148,7 +136,6 @@ namespace RPO_college
                 case "Рудоводители дипломных\nработ":
                     getInfo = "SELECT [ФИО Руководителя] FROM [Дипломные работы]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Дипломные работы]");
@@ -158,7 +145,6 @@ namespace RPO_college
                 case "Нагрузка преподователей":
                     getInfo = "SELECT * FROM Нагрузка";
                     da = new OleDbDataAdapter(getInfo, DataBase);
-                    cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Нагрузка]");
