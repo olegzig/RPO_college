@@ -21,7 +21,7 @@ namespace RPO_college
     /// </summary>
     public partial class Tables : Window
     {
-        OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True");
+        readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
         public Tables(string WhatWasCho)
         {
             InitializeComponent();
