@@ -114,5 +114,10 @@
   <ItemGroup>
     <Resource Include="DBPlan.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
