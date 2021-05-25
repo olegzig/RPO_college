@@ -21,17 +21,17 @@ namespace RPO_college
     /// </summary>
     public partial class Tables : Window
     {
-        readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+        string getInfo;
+        OleDbDataAdapter da;
+        DataSet ds;
         public Tables(string WhatWasCho)
         {
             InitializeComponent();
 
-            DataBase.Open();
             Closed += Close;
 
-            string getInfo;
-            OleDbDataAdapter da;
-            DataSet ds;
+            OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+            DataBase.Open();
             switch (WhatWasCho)
             {
                 case "Учащиеся":
@@ -40,8 +40,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Преподователи":
                     getInfo = "SELECT * FROM Преподователи";
@@ -49,8 +49,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Диссертации":
                     getInfo = "SELECT * FROM Диссертации";
@@ -58,8 +58,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Диссертации]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Кафедры":
                     getInfo = "SELECT Группа, Кафедра FROM Занятия";
@@ -67,8 +67,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Преподователи и\nдисциплины":
                     getInfo = "SELECT ФИО, Кафедра FROM Преподователи";
@@ -76,8 +76,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Занятия":
                     getInfo = "SELECT * FROM Занятия";
@@ -85,8 +85,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Учащиеся и их оценки":
                     getInfo = "SELECT * FROM Оценки";
@@ -94,8 +94,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Оценки]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Отличники":
                     getInfo = "SELECT * FROM Оценки WHERE Оценка > 7";
@@ -103,8 +103,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Экзаменаторы":
                     getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
@@ -112,8 +112,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Преподователи]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Экзаменаторы и оценки":
                     getInfo = "SELECT * FROM [Экзамены и курсачи]";
@@ -121,8 +121,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Дипломные работы":
                     getInfo = "SELECT Оценка, ФИО, Дициплина FROM[Дипломные работы]";
@@ -130,8 +130,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Дипломные работы]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Рудоводители дипломных\nработ":
                     getInfo = "SELECT [ФИО Руководителя] FROM [Дипломные работы]";
@@ -139,8 +139,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Дипломные работы]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 case "Нагрузка преподователей":
                     getInfo = "SELECT * FROM Нагрузка";
@@ -148,8 +148,8 @@ namespace RPO_college
                     ds = new DataSet();
 
                     da.Fill(ds, "[Нагрузка]");
-                    ds.Tables[0].TableName = "table";
-                    table.ItemsSource = ds.Tables["table"].DefaultView;
+                    ds.Tables[0].TableName = "MyTable";
+                    MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
                 default:
                     MessageBox.Show("Вы всё сломали!");
