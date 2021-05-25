@@ -165,6 +165,9 @@ namespace RPO_college
                     ds.Tables[0].TableName = "table";
                     table.ItemsSource = ds.Tables["table"].DefaultView;
                     break;
+                default:
+                    MessageBox.Show("Вы всё сломали!");
+                    break;
             }
         }
 
