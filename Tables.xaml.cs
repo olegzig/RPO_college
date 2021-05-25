@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,26 @@ namespace RPO_college
     /// </summary>
     public partial class Tables : Window
     {
-        public Tables()
+        OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True");
+        public Tables(string WhatWasCho)
         {
             InitializeComponent();
 
-            OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True");
             DataBase.Open();
+            Closed += Close;
 
-            switch (WhatWasChoosed.BUF)
+
+            switch (WhatWasCho)
             {
                 case "Учащиеся":
+                    string getInfo = "SELECT * FROM Учащиеся";
+                    OleDbDataAdapter da = new OleDbDataAdapter(getInfo, DataBase);
+                    OleDbCommandBuilder cb = new OleDbCommandBuilder(da);
+                    DataSet ds = new DataSet();
+
+                    da.Fill(ds, "[Учащиеся]");
+                    ds.Tables[0].TableName = "table";
+                    table.ItemsSource = ds.Tables["table"].DefaultView;
 
                     break;
             }
@@ -40,6 +51,17 @@ namespace RPO_college
             Menu window = new Menu();
             window.Show();
             this.Close();
+        }
+        private void Close(object sender, EventArgs e)
+        {
+            try
+            {
+                DataBase.Close();
+            }
+            catch
+            {
+                //Hello world!
+            }
         }
     }
 }

@@ -27,14 +27,14 @@ namespace RPO_college
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            Tables tables = new Tables();
+            Tables tables;
 
             switch (btn.Content)
             {
                 default:
-                    this.Close();
-                    WhatWasChoosed.BUF = btn.Content.ToString();
+                    tables = new Tables(btn.Content.ToString());
                     tables.Show();
+                    this.Close();
                     break;
 
                 case "Выйти":
@@ -48,9 +48,4 @@ namespace RPO_college
             }
         }
     }
-    public static class WhatWasChoosed 
-    {
-        public static string BUF;
-    }
-
 }
