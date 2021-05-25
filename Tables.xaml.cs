@@ -187,7 +187,7 @@ namespace RPO_college
 
             da.Update(ds, "MyTable");
 
-            MessageBox.Show("save");
+            MessageBox.Show("Save");
         }
     }
 }
