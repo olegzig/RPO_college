@@ -75,7 +75,7 @@ namespace RPO_college
                     ds.Tables[0].TableName = "table";
                     table.ItemsSource = ds.Tables["table"].DefaultView;
                     break;
-                case "Преподователи и&#xa;дисциплины":
+                case "Преподователи и\nдисциплины":
                     getInfo = "SELECT ФИО, Кафедра FROM Преподователи";
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     cb = new OleDbCommandBuilder(da);
@@ -136,7 +136,7 @@ namespace RPO_college
                     table.ItemsSource = ds.Tables["table"].DefaultView;
                     break;
                 case "Дипломные работы":
-                    getInfo = "SELECT ФИО, Оценка, Дисциплина FROM [Дипломные работы]";
+                    getInfo = "SELECT Оценка, ФИО, Дициплина FROM[Дипломные работы]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     cb = new OleDbCommandBuilder(da);
                     ds = new DataSet();
@@ -145,7 +145,7 @@ namespace RPO_college
                     ds.Tables[0].TableName = "table";
                     table.ItemsSource = ds.Tables["table"].DefaultView;
                     break;
-                case "Рудоводители дипломных&#xa;работ":
+                case "Рудоводители дипломных\nработ":
                     getInfo = "SELECT [ФИО Руководителя] FROM [Дипломные работы]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     cb = new OleDbCommandBuilder(da);
