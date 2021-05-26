@@ -185,19 +185,24 @@ namespace RPO_college
             {
                 DataBase.Close();
             }
-            catch
+            catch (Exception err)
             {
-                //Hello world!
+                MessageBox.Show(err.Message, "err with close bd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            cmd = new OleDbCommandBuilder(da);
-
-            da.Update(ds, "MyTable");
-
-            MessageBox.Show("Save");
+            if (MainWindow.isTeacher)
+            {
+                cmd = new OleDbCommandBuilder(da);
+                da.Update(ds, "MyTable");
+                MessageBox.Show("Save");
+            }
+            else
+            {
+                MessageBox.Show("Вы не преподаватель", "Не удалось", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
