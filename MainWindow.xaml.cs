@@ -44,6 +44,7 @@ namespace RPO_college
         {
             thcr.Visibility = Visibility.Hidden;
             login.Visibility = Visibility.Visible;
+            IsTryLoginAsTeacher = false;
         }
 
         private void Button_Loin(object sender, RoutedEventArgs e)//тут проверять
