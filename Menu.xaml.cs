@@ -31,9 +31,9 @@ namespace RPO_college
                     Environment.Exit(0);
                     break;
                 case "Разлогинится":
-                    this.Close();
                     MainWindow window = new MainWindow();
                     window.Show();
+                    this.Close();
                     break;
             }
         }
