@@ -21,7 +21,7 @@ namespace RPO_college
         {
             InitializeComponent();
 
-            if (MainWindow.isTeacher)
+            if (MainWindow.IsTeacher)
             {
                 NotifyIfTeacher.Foreground = Brushes.Green;
                 NotifyIfTeacher.Content = "Преподаватель";
@@ -193,11 +193,11 @@ namespace RPO_college
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.isTeacher)
+            if (MainWindow.IsTeacher)
             {
                 cmd = new OleDbCommandBuilder(da);
                 da.Update(ds, "MyTable");
-                MessageBox.Show("Save");
+                MessageBox.Show("Saved");
             }
             else
             {

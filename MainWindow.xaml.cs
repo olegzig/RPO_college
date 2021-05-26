@@ -16,8 +16,10 @@ namespace RPO_college
         OleDbConnection con;
         OleDbDataAdapter da;
 
-        public static bool isTeacher = false;//t = вошёл как учитель
-        public static bool isTryLoginAsTeacher = false;//t = пытается войти как учитель
+        static bool _isTeacher;
+        static bool _isTryLoginAsTeacher;
+        public static bool IsTeacher { get => _isTeacher; set => _isTeacher = value; }//t = вошёл как учитель
+        public static bool IsTryLoginAsTeacher { get => _isTryLoginAsTeacher; set => _isTryLoginAsTeacher = value; }//t = пытается войти как учитель
 
         public MainWindow()
         {
@@ -35,20 +37,18 @@ namespace RPO_college
             da = new OleDbDataAdapter(getInfo, con);//создаём датаадаптер (отправляем запрос в БД?)
             da.Fill(ds,"Преподователи");//заполняем то что хранится в таблице "Преподователи" в ds
             con.Close();//закрываем подключение
-            isTryLoginAsTeacher = true;
+            IsTryLoginAsTeacher = true;
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-
             thcr.Visibility = Visibility.Hidden;
             login.Visibility = Visibility.Visible;
         }
 
         private void Button_Loin(object sender, RoutedEventArgs e)//тут проверять
         {
-            if (isTryLoginAsTeacher)
+            if (IsTryLoginAsTeacher)
             {
                 foreach(DataTable dt in ds.Tables)
                 {
@@ -58,7 +58,7 @@ namespace RPO_college
 
                         if (cells[0].ToString() == Поле_Пароль.Text && cells[1].ToString() == Поле_Логин.Text)//passw, FIO А.В.Варлокович
                         {
-                            isTeacher = true;
+                            IsTeacher = true;
                             Menu menu = new Menu();
                             menu.Show();
                             this.Close();
