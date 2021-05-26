@@ -56,7 +56,7 @@ namespace RPO_college
                     {
                         var cells = dr.ItemArray;
 
-                        if (cells[0].ToString() == Поле_Пароль.Text || cells[1].ToString() == Поле_Логин.Text)//passw, FIO А.В.Варлокович
+                        if (cells[0].ToString() == Поле_Пароль.Text && cells[1].ToString() == Поле_Логин.Text)//passw, FIO А.В.Варлокович
                         {
                             isTeacher = true;
                             Menu menu = new Menu();
@@ -65,6 +65,7 @@ namespace RPO_college
                             return;
                         }
                     }
+                    MessageBox.Show("Неправильный логин или пароль", "Ошибка", MessageBoxButton.OK);
                 }
             }
             else

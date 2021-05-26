@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows;
+using System.Windows.Media;
 
 namespace RPO_college
 {
@@ -20,6 +21,16 @@ namespace RPO_college
         {
             InitializeComponent();
 
+            if (MainWindow.isTeacher)
+            {
+                NotifyIfTeacher.Foreground = Brushes.Green;
+                NotifyIfTeacher.Content = "Преподаватель";
+            }
+            else
+            {
+                NotifyIfTeacher.Foreground = Brushes.Red;
+                NotifyIfTeacher.Content = "Учащийся";
+            }
             Closed += Close;
 
             DataBase.Open();
