@@ -10,17 +10,16 @@ namespace RPO_college
     /// </summary>
     public partial class Tables : Window
     {
-        private string getInfo;
-        private string WWC;
-        private OleDbDataAdapter da;
-        private DataSet ds;
-        private OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+        readonly string getInfo;//readonly
+        readonly OleDbDataAdapter da;
+        readonly DataSet ds;
+        OleDbCommandBuilder cmd;
+        readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
 
         public Tables(string WhatWasCho)
         {
             InitializeComponent();
 
-            WWC = WhatWasCho;
             Closed += Close;
 
             DataBase.Open();
@@ -183,7 +182,7 @@ namespace RPO_college
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            OleDbCommandBuilder cmd = new OleDbCommandBuilder(da);
+            cmd = new OleDbCommandBuilder(da);
 
             da.Update(ds, "MyTable");
 
