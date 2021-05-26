@@ -11,11 +11,11 @@ namespace RPO_college
     /// </summary>
     public partial class Tables : Window
     {
-        readonly string getInfo;//readonly
-        readonly OleDbDataAdapter da;
-        readonly DataSet ds;
-        OleDbCommandBuilder cmd;
-        readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+        private readonly string getInfo;//readonly
+        private readonly OleDbDataAdapter da;
+        private readonly DataSet ds;
+        private OleDbCommandBuilder cmd;
+        private readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
 
         public Tables(string WhatWasCho)
         {
@@ -47,7 +47,11 @@ namespace RPO_college
                     break;
 
                 case "Преподователи":
-                    getInfo = "SELECT * FROM Преподователи";
+                    if (MainWindow.IsTeacher)
+                        getInfo = "SELECT * FROM Преподователи";
+                    else
+                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, [З/П], [Тип занятий], [Руководитель курсовой] FROM Преподователи";
+
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -117,7 +121,11 @@ namespace RPO_college
                     break;
 
                 case "Экзаменаторы":
-                    getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
+                    if (MainWindow.IsTeacher)
+                        getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
+                    else
+                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, [З/П], [Тип занятий], [Руководитель курсовой] FROM Преподователи WHERE [Руководитель курсовой] = true";
+
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
