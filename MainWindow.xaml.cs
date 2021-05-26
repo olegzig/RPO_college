@@ -13,7 +13,7 @@ namespace RPO_college
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//задейстуется если чел входит как учитель
         {
             login.Visibility = Visibility.Hidden;
             thcr.Visibility = Visibility.Visible;
@@ -27,7 +27,7 @@ namespace RPO_college
             login.Visibility = Visibility.Visible;
         }
 
-        private void Button_Loin(object sender, RoutedEventArgs e)
+        private void Button_Loin(object sender, RoutedEventArgs e)//тут проверять
         {
             Menu menu = new Menu();
             menu.Show();
