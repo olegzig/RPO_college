@@ -2,6 +2,7 @@
 using System.Data.OleDb;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
 
 namespace RPO_college
 {
@@ -49,6 +50,22 @@ namespace RPO_college
         {
             if (isTryLoginAsTeacher)
             {
+                foreach(DataTable dt in ds.Tables)
+                {
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        var cells = dr.ItemArray;
+
+                        if (cells[0].ToString() == Поле_Пароль.Text || cells[1].ToString() == Поле_Логин.Text)//passw, FIO А.В.Варлокович
+                        {
+                            isTeacher = true;
+                            Menu menu = new Menu();
+                            menu.Show();
+                            this.Close();
+                            return;
+                        }
+                    }
+                }
             }
             else
             {

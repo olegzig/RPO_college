@@ -50,10 +50,10 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="1" Content="Логин"/>
-            <TextBox Grid.Row="2"/>
+            <TextBox Grid.Row="2" Name="Поле_Логин"/>
 
-            <Label Grid.Row="3" Content="Пароль" Margin="5,0,5,0"/>
-            <TextBox Grid.Row="4"/>
+            <Label Grid.Row="3" Content="Пароль" Margin="5,0,5,0" />
+            <TextBox Grid.Row="4" x:Name="Поле_Пароль"/>
 
             <Button Grid.Row="5" Content="Войти" Click="Button_Loin"/>
             
