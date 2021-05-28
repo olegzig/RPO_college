@@ -48,9 +48,13 @@ namespace RPO_college
 
                 case "Преподователи":
                     if (MainWindow.IsTeacher)
+                    {
                         getInfo = "SELECT * FROM Преподователи";
+                    }
                     else
+                    {
                         getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, [З/П], [Тип занятий], [Руководитель курсовой] FROM Преподователи";
+                    }
 
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
