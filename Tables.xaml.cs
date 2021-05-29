@@ -170,6 +170,7 @@ namespace RPO_college
                     MessageBox.Show("Вы всё сломали!");
                     break;
             }
+            cmd = new OleDbCommandBuilder(da);
         }
 
         private void Button_Return(object sender, RoutedEventArgs e)
@@ -195,7 +196,6 @@ namespace RPO_college
         {
             if (MainWindow.IsTeacher)
             {
-                cmd = new OleDbCommandBuilder(da);
                 da.Update(ds, "MyTable");
                 MessageBox.Show("Saved");
             }
