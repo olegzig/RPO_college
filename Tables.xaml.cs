@@ -48,7 +48,6 @@ namespace RPO_college
 
                 case "Преподователи":
                     getInfo = "SELECT * FROM Преподователи";
-
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
