@@ -49,6 +49,12 @@ namespace RPO_college
 
         private void Button_Loin(object sender, RoutedEventArgs e)//тут проверять
         {
+            Button button = sender as Button;
+            if(button.Content.ToString() == "Войти как ученик")
+            {
+                IsTryLoginAsTeacher = false;
+            }
+
             if (IsTryLoginAsTeacher)
             {
                 foreach(DataTable dt in ds.Tables)

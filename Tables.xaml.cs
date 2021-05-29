@@ -47,7 +47,14 @@ namespace RPO_college
                     break;
 
                 case "Преподователи":
-                    getInfo = "SELECT * FROM Преподователи";
+                    if (MainWindow.IsTeacher)
+                    {
+                        getInfo = "SELECT * FROM Преподователи";
+                    }
+                    else
+                    {
+                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподователи";
+                    }
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -117,7 +124,14 @@ namespace RPO_college
                     break;
 
                 case "Экзаменаторы":
-                    getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
+                    if (MainWindow.IsTeacher)
+                    {
+                        getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
+                    }
+                    else
+                    {
+                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподователи WHERE [Руководитель курсовой] = true";
+                    }
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
