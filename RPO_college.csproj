@@ -107,6 +107,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="~~DOC~~\Zhgunovskiy_Oleg_38-tp.docx" />
+    <None Include="~~DOC~~\Этикетка.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
