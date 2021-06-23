@@ -74,7 +74,7 @@
         <Button Grid.Column="2" Grid.Row="3" Content="Рудоводители дипломных&#xa;работ" Click="Button_Click"/>
         <!--Получить нагрузку преподавателей (название дисциплины, количество
 часов), ее объем по отдельным видам занятий-->
-        <Button Grid.Column="1" Grid.Row="4" Content="Нагрузка преподователей" Click="Button_Click"/>
+        <Button Grid.Column="1" Grid.Row="4" Content="Нагрузка преподавателей" Click="Button_Click"/>
 
         <Button Grid.Column="0" Grid.Row="4" Content="Разлогинится" Background="LightBlue" Click="Button_Click"/>
         <Button Grid.Column="2" Grid.Row="4" Content="Выйти" Background="IndianRed" Click="Button_Click"/>

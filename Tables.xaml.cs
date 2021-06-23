@@ -126,11 +126,11 @@ namespace RPO_college
                 case "Экзаменаторы":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT * FROM Преподователи WHERE [Руководитель курсовой] = true";
+                        getInfo = "SELECT * FROM Преподователи WHERE ([Руководитель_Курсовой] = true)";
                     }
                     else
                     {
-                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподователи WHERE [Руководитель курсовой] = true";
+                        getInfo = "SELECT ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Руководитель_Курсовой], [Тип_Занятий], Код FROM Преподователи WHERE ([Руководитель_Курсовой] = true)";
                     }
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -170,7 +170,7 @@ namespace RPO_college
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
-                case "Нагрузка преподователей":
+                case "Нагрузка преподавателей":
                     getInfo = "SELECT * FROM Нагрузка";
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
