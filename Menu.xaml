@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPO_college"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Menu" Height="450" Width="550" MinHeight="350" MinWidth="660">
     <Window.Resources>
         <Style TargetType="Button">
