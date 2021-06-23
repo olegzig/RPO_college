@@ -106,9 +106,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="~~DOC~~\Zhgunovskiy_Oleg_38-tp.docx" />
-    <None Include="~~DOC~~\Курсовой проект.pptx" />
-    <None Include="~~DOC~~\Этикетка.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -123,6 +120,9 @@
     <Content Include="DB.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="~~DOC~~\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
