@@ -161,7 +161,7 @@ namespace RPO_college
                     break;
 
                 case "Рудоводители дипломных\nработ":
-                    getInfo = "SELECT [ФИО Руководителя] FROM [Дипломные работы]";
+                    getInfo = "SELECT Дициплина, [ФИО_Руководителя] FROM[Дипломные работы]";
                     da = new OleDbDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
