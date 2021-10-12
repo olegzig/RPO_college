@@ -53,6 +53,7 @@ namespace RPO_college
             if(button.Content.ToString() == "Войти как ученик")
             {
                 IsTryLoginAsTeacher = false;
+                IsTeacher = false;
             }
 
             if (IsTryLoginAsTeacher)
