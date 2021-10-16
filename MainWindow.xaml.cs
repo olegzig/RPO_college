@@ -1,8 +1,9 @@
 ﻿using System.Data;
-using System.Data.OleDb;
+using System.Data.Sql;
 using System.Windows;
 using System.Windows.Controls;
 using System.Linq;
+using System.Data.SqlClient;
 
 namespace RPO_college
 {
@@ -13,8 +14,8 @@ namespace RPO_college
     {
         string getInfo;
         DataSet ds;
-        OleDbConnection con;
-        OleDbDataAdapter da;
+        SqlConnection con;
+        SqlDataAdapter da;
 
         static bool _isTeacher;
         static bool _isTryLoginAsTeacher;
@@ -31,11 +32,11 @@ namespace RPO_college
             login.Visibility = Visibility.Hidden;
             thcr.Visibility = Visibility.Visible;
 
-            con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True");//подключаем БД
-            getInfo = "SELECT Пароль, ФИО FROM Преподователи";//Выбираем что получать
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\boris\Source\Repos\olegzig\RPO_college\Database1.mdf;Integrated Security=True");//подключаем БД
+            getInfo = "SELECT Пароль, ФИО FROM Преподаватели";//Выбираем что получать
             ds = new DataSet();//создаём датасет
-            da = new OleDbDataAdapter(getInfo, con);//создаём датаадаптер (отправляем запрос в БД?)
-            da.Fill(ds,"Преподователи");//заполняем то что хранится в таблице "Преподователи" в ds
+            da = new SqlDataAdapter(getInfo, con);//создаём датаадаптер (отправляем запрос в БД?)
+            da.Fill(ds,"Преподаватели");//заполняем то что хранится в таблице "Преподователи" в ds
             con.Close();//закрываем подключение
             IsTryLoginAsTeacher = true;
         }

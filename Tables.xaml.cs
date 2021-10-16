@@ -212,6 +212,7 @@ namespace RPO_college
         {
             if (MainWindow.IsTeacher)
             {
+                RemoveNullColumnFromDataset();
                 da.Update(ds, "MyTable");
                 MessageBox.Show("Saved");
             }
@@ -219,6 +220,16 @@ namespace RPO_college
             {
                 MessageBox.Show("Вы не преподаватель", "Не удалось", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+        private void RemoveNullColumnFromDataset()
+        {
+            
+            for (int i = ds.Tables[0].Rows.Count - 1; i >= 0; i--)
+            {
+                if (ds.Tables[0].Rows[i][1] == DBNull.Value)
+                    ds.Tables[0].Rows[i].Delete();
+            }
+            ds.AcceptChanges();
         }
     }
 }
