@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Media;
 
@@ -12,10 +13,11 @@ namespace RPO_college
     public partial class Tables : Window
     {
         private readonly string getInfo;//readonly
-        private readonly OleDbDataAdapter da;
+        private readonly SqlDataAdapter da;
         private readonly DataSet ds;
-        private OleDbCommandBuilder cmd;
-        private readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+        private SqlCommandBuilder cmd;
+        //private readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
+        private readonly SqlConnection DataBase = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\boris\Source\Repos\olegzig\RPO_college\Database1.mdf;Integrated Security=True");
 
         public Tables(string WhatWasCho)
         {
@@ -38,7 +40,7 @@ namespace RPO_college
             {
                 case "Учащиеся":
                     getInfo = "SELECT * FROM Учащиеся";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -46,26 +48,26 @@ namespace RPO_college
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
-                case "Преподователи":
+                case "Преподаватели":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT * FROM Преподователи";
+                        getInfo = "SELECT * FROM Преподаватели";
                     }
                     else
                     {
-                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподователи";
+                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподаватели";
                     }
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
-                    da.Fill(ds, "[Преподователи]");
+                    da.Fill(ds, "[Преподаватели]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
                 case "Диссертации":
                     getInfo = "SELECT * FROM Диссертации";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Диссертации]");
@@ -75,7 +77,7 @@ namespace RPO_college
 
                 case "Кафедры":
                     getInfo = "SELECT Группа, Кафедра FROM Занятия";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
@@ -83,19 +85,19 @@ namespace RPO_college
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
-                case "Преподователи и\nдисциплины":
-                    getInfo = "SELECT ФИО, Кафедра FROM Преподователи";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                case "Преподаватели и\nдисциплины":
+                    getInfo = "SELECT ФИО, Кафедра FROM Преподаватели";
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
-                    da.Fill(ds, "[Преподователи]");
+                    da.Fill(ds, "[Преподаватели]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
                 case "Занятия":
                     getInfo = "SELECT * FROM Занятия";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Занятия]");
@@ -105,7 +107,7 @@ namespace RPO_college
 
                 case "Учащиеся и их оценки":
                     getInfo = "SELECT * FROM Оценки";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Оценки]");
@@ -115,7 +117,7 @@ namespace RPO_college
 
                 case "Отличники":
                     getInfo = "SELECT * FROM Оценки WHERE Оценка > 7";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -126,23 +128,23 @@ namespace RPO_college
                 case "Экзаменаторы":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT * FROM Преподователи WHERE ([Руководитель_Курсовой] = true)";
+                        getInfo = "SELECT * FROM Преподаватели WHERE ([Руководитель_Курсовой] = true)";
                     }
                     else
                     {
-                        getInfo = "SELECT ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Руководитель_Курсовой], [Тип_Занятий], Код FROM Преподователи WHERE ([Руководитель_Курсовой] = true)";
+                        getInfo = "SELECT ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Руководитель_Курсовой], [Тип_Занятий], Код FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
                     }
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
-                    da.Fill(ds, "[Преподователи]");
+                    da.Fill(ds, "[Преподаватели]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
                 case "Экзаменаторы и оценки":
                     getInfo = "SELECT * FROM [Экзамены и курсачи]";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Учащиеся]");
@@ -151,18 +153,18 @@ namespace RPO_college
                     break;
 
                 case "Дипломные работы":
-                    getInfo = "SELECT Оценка, ФИО, Дициплина FROM[Дипломные работы]";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    getInfo = "SELECT Оценка, ФИО, Дисциплина FROM[ДипломныеРаботы]";
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
-                    da.Fill(ds, "[Дипломные работы]");
+                    da.Fill(ds, "[ДипломныеРаботы]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
 
                 case "Рудоводители дипломных\nработ":
-                    getInfo = "SELECT Дициплина, [ФИО_Руководителя] FROM[Дипломные работы]";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    getInfo = "SELECT Дисциплина, [ФИО_Руководителя] FROM[Дипломные работы]";
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Дипломные работы]");
@@ -172,7 +174,7 @@ namespace RPO_college
 
                 case "Нагрузка преподавателей":
                     getInfo = "SELECT * FROM Нагрузка";
-                    da = new OleDbDataAdapter(getInfo, DataBase);
+                    da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
                     da.Fill(ds, "[Нагрузка]");
@@ -184,7 +186,7 @@ namespace RPO_college
                     MessageBox.Show("Вы всё сломали!");
                     break;
             }
-            cmd = new OleDbCommandBuilder(da);
+            cmd = new SqlCommandBuilder(da);
         }
 
         private void Button_Return(object sender, RoutedEventArgs e)
