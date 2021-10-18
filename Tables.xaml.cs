@@ -51,11 +51,11 @@ namespace RPO_college
                 case "Преподаватели":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT * FROM Преподаватели";
+                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Пароль, Руководитель_Курсовой FROM Преподаватели";
                     }
                     else
                     {
-                        getInfo = "SELECT Код, ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Тип_Занятий], [Руководитель_Курсовой] FROM Преподаватели";
+                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели";
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -66,7 +66,7 @@ namespace RPO_college
                     break;
 
                 case "Диссертации":
-                    getInfo = "SELECT * FROM Диссертации";
+                    getInfo = "SELECT ФИО, Тема, Дата FROM Диссертации";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -96,7 +96,7 @@ namespace RPO_college
                     break;
 
                 case "Занятия":
-                    getInfo = "SELECT * FROM Занятия";
+                    getInfo = "SELECT Ключ, Группа, Факультет, Кафедра FROM Занятия";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -106,7 +106,7 @@ namespace RPO_college
                     break;
 
                 case "Учащиеся и их оценки":
-                    getInfo = "SELECT * FROM Оценки";
+                    getInfo = "SELECT ФИО_Студента, ФИО_Преподавателя, Оценка FROM Оценки";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -116,7 +116,7 @@ namespace RPO_college
                     break;
 
                 case "Отличники":
-                    getInfo = "SELECT * FROM Оценки WHERE Оценка > 7";
+                    getInfo = "SELECT ФИО_Студента, ФИО_Преподавателя, Оценка FROM Оценки WHERE Оценка > 7";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -128,11 +128,11 @@ namespace RPO_college
                 case "Экзаменаторы":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT * FROM Преподаватели WHERE ([Руководитель_Курсовой] = true)";
+                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Пароль, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = true)";
                     }
                     else
                     {
-                        getInfo = "SELECT ФИО, Факультет, Кафедра, Категория, Пол, Дети, Рождение, ЗП, [Руководитель_Курсовой], [Тип_Занятий], Код FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
+                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -143,7 +143,7 @@ namespace RPO_college
                     break;
 
                 case "Экзаменаторы и оценки":
-                    getInfo = "SELECT * FROM [Экзамены и курсачи]";
+                    getInfo = "SELECT ФИО, Оценка, Дисциплина, ФИО_Экзаменатора FROM [Экзамены и курсачи]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -153,11 +153,11 @@ namespace RPO_college
                     break;
 
                 case "Дипломные работы":
-                    getInfo = "SELECT Оценка, ФИО, Дисциплина FROM[ДипломныеРаботы]";
+                    getInfo = "select ФИО, Оценка, Дисциплина, ФИО_руководителя from [Дипломные Работы]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
-                    da.Fill(ds, "[ДипломныеРаботы]");
+                    da.Fill(ds, "[Дипломные Работы]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
                     break;
@@ -212,7 +212,6 @@ namespace RPO_college
         {
             if (MainWindow.IsTeacher)
             {
-                RemoveNullColumnFromDataset();
                 da.Update(ds, "MyTable");
                 MessageBox.Show("Saved");
             }
@@ -221,7 +220,7 @@ namespace RPO_college
                 MessageBox.Show("Вы не преподаватель", "Не удалось", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        private void RemoveNullColumnFromDataset()
+        private void RemoveNullColumnFromDataset()//пусть пока висит
         {
             
             for (int i = ds.Tables[0].Rows.Count - 1; i >= 0; i--)
