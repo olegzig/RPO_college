@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace RPO_college
@@ -51,11 +52,11 @@ namespace RPO_college
                 case "Преподаватели":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Пароль, Руководитель_Курсовой FROM Преподаватели";
+                        getInfo = "SELECT * FROM Преподаватели";
                     }
                     else
                     {
-                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели";
+                        getInfo = "SELECT Ключ, ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели";
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -66,7 +67,7 @@ namespace RPO_college
                     break;
 
                 case "Диссертации":
-                    getInfo = "SELECT ФИО, Тема, Дата FROM Диссертации";
+                    getInfo = "SELECT * FROM Диссертации";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -76,7 +77,7 @@ namespace RPO_college
                     break;
 
                 case "Кафедры":
-                    getInfo = "SELECT Группа, Кафедра FROM Занятия";
+                    getInfo = "SELECT * FROM Занятия";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -86,7 +87,7 @@ namespace RPO_college
                     break;
 
                 case "Преподаватели и\nдисциплины":
-                    getInfo = "SELECT ФИО, Кафедра FROM Преподаватели";
+                    getInfo = "SELECT * FROM Преподаватели";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -96,7 +97,7 @@ namespace RPO_college
                     break;
 
                 case "Занятия":
-                    getInfo = "SELECT Ключ, Группа, Факультет, Кафедра FROM Занятия";
+                    getInfo = "SELECT * FROM Занятия";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -106,7 +107,7 @@ namespace RPO_college
                     break;
 
                 case "Учащиеся и их оценки":
-                    getInfo = "SELECT ФИО_Студента, ФИО_Преподавателя, Оценка FROM Оценки";
+                    getInfo = "SELECT * FROM Оценки";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -116,7 +117,7 @@ namespace RPO_college
                     break;
 
                 case "Отличники":
-                    getInfo = "SELECT ФИО_Студента, ФИО_Преподавателя, Оценка FROM Оценки WHERE Оценка > 7";
+                    getInfo = "SELECT* FROM Оценки WHERE Оценка > 7";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -128,11 +129,11 @@ namespace RPO_college
                 case "Экзаменаторы":
                     if (MainWindow.IsTeacher)
                     {
-                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Пароль, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = true)";
+                        getInfo = "SELECT * FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";
                     }
                     else
                     {
-                        getInfo = "SELECT ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
+                        getInfo = "SELECT Ключ, ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -143,7 +144,7 @@ namespace RPO_college
                     break;
 
                 case "Экзаменаторы и оценки":
-                    getInfo = "SELECT ФИО, Оценка, Дисциплина, ФИО_Экзаменатора FROM [Экзамены и курсачи]";
+                    getInfo = "SELECT * FROM [Экзамены и курсачи]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -153,7 +154,7 @@ namespace RPO_college
                     break;
 
                 case "Дипломные работы":
-                    getInfo = "select ФИО, Оценка, Дисциплина, ФИО_руководителя from [Дипломные Работы]";
+                    getInfo = "SELECT * from [Дипломные Работы]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -163,7 +164,7 @@ namespace RPO_college
                     break;
 
                 case "Рудоводители дипломных\nработ":
-                    getInfo = "SELECT Дисциплина, [ФИО_Руководителя] FROM[Дипломные работы]";
+                    getInfo = "SELECT* FROM[Дипломные работы]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
@@ -180,6 +181,7 @@ namespace RPO_college
                     da.Fill(ds, "[Нагрузка]");
                     ds.Tables[0].TableName = "MyTable";
                     MyTable.ItemsSource = ds.Tables["MyTable"].DefaultView;
+                    
                     break;
 
                 default:
@@ -188,8 +190,16 @@ namespace RPO_college
             }
             cmd = new SqlCommandBuilder(da);
         }
+        private void MyTable_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)//ЭТО МОЖЕТ ВСЁ СЛОМАТЬ
+        {
+            string headername = e.Column.Header.ToString();
+            if (headername == "Ключ")
+            {
+                e.Cancel = true;
+            }
+        }
 
-        private void Button_Return(object sender, RoutedEventArgs e)
+            private void Button_Return(object sender, RoutedEventArgs e)
         {
             Menu window = new Menu();
             window.Show();
@@ -231,6 +241,7 @@ namespace RPO_college
             ds.AcceptChanges();
         }
     }
+   
 }
 
 //WhatWasClosed

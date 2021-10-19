@@ -35,7 +35,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.RowSpan="3" x:Name="MyTable" AutoGenerateColumns="True" ColumnWidth="*"/>
+        <DataGrid Grid.Row="0" Grid.RowSpan="3" x:Name="MyTable" AutoGenerateColumns="True" ColumnWidth="*" AutoGeneratingColumn="MyTable_AutoGeneratingColumn"/>
 
         <Label Grid.Column="1" Grid.Row="0" Name="NotifyIfTeacher" Foreground="red"/>
         <Button Grid.Column="1" Grid.Row="1" Content="Сохранить" Background="LightGreen" Click="Button_Save"/>
