@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="52152fc3aecbc53ed3827d0661170849_2.ico" />
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
     <Content Include="Database1.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

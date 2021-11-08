@@ -262,7 +262,6 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-*.mdf
 *.ldf
 *.ndf
 
@@ -362,3 +361,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /DB.ldb
+/Database1.mdf
