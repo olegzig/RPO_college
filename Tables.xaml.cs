@@ -56,7 +56,7 @@ namespace RPO_college
                     }
                     else
                     {
-                        getInfo = "SELECT Ключ, ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели";
+                        getInfo = "select * from [View]";
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
@@ -117,7 +117,7 @@ namespace RPO_college
                     break;
 
                 case "Отличники":
-                    getInfo = "SELECT* FROM Оценки WHERE Оценка > 7";
+                    getInfo = "select * from [View2]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
