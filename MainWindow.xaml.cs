@@ -32,8 +32,7 @@ namespace RPO_college
             login.Visibility = Visibility.Hidden;
             thcr.Visibility = Visibility.Visible;
 
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\boris\source\repos\olegzig\RPO_college\Database1.mdf;Integrated Security=True");//подключаем БД
-          
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;User ID=admin;Password=1111;Connect Timeout=30");//подключаем БД
             getInfo = "SELECT Пароль, ФИО FROM Преподаватели";//Выбираем что получать
             ds = new DataSet();//создаём датасет
             da = new SqlDataAdapter(getInfo, con);//создаём датаадаптер (отправляем запрос в БД?)
