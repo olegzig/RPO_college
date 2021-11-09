@@ -16,8 +16,8 @@ namespace RPO_college
         private readonly SqlDataAdapter da;
         private readonly DataSet ds;
         private SqlCommandBuilder cmd;
-        //private readonly OleDbConnection DataBase = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB.mdb;Persist Security Info=True"); //readonly
-        private readonly SqlConnection DataBase = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;User ID = admin; Password=1111;Connect Timeout = 30");
+        //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\boris\source\repos\olegzig\RPO_college\bin\Debug\Database1.mdf;Integrated Security=True;Connect Timeout=30
+        private readonly SqlConnection DataBase = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;Connect Timeout = 30");
         public Tables(string WhatWasCho)
         {
             InitializeComponent();
