@@ -133,7 +133,7 @@ namespace RPO_college
                     }
                     else
                     {
-                        getInfo = "SELECT Ключ, ФИО, Факультет, Категория, Кафедра, Пол, Дети, Рождение, ЗП, Тип_Занятий, Руководитель_Курсовой FROM Преподаватели WHERE ([Руководитель_Курсовой] = 1)";//тут мб из-за бита будет ошибка
+                        getInfo = "exec [Procedure]";//тут мб из-за бита будет ошибка
                     }
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
