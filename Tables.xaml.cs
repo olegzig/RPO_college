@@ -142,7 +142,7 @@ namespace RPO_college
                     break;
 
                 case "Экзаменаторы и оценки":
-                    getInfo = "SELECT * FROM [Экзамены и курсачи]";
+                    getInfo = "SELECT * FROM [Экзамены и курсовые работы]";
                     da = new SqlDataAdapter(getInfo, DataBase);
                     ds = new DataSet();
 
