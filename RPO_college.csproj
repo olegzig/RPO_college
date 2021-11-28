@@ -120,6 +120,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DOC BD\DOC\Жгуновский_Ведомость.docx" />
+    <None Include="DOC BD\DOC\ПЗ_Жгуновский.docx" />
+    <None Include="DOC BD\GRAPH\Диаграмма UML.docx" />
+    <None Include="DOC BD\GRAPH\Диаграмма баз данных.docx" />
+    <None Include="DOC BD\GRAPH\Презентация_Жгуновский.pptx" />
+    <None Include="DOC BD\этикетка.doc" />
+    <None Include="DOC\DOC\Пояснительная_Записка_Жгуновский.docx" />
+    <None Include="DOC\DOC\Техническое_задание_Жгуновский.doc" />
+    <None Include="DOC\DOC\Этикетка_Жгуновский.docx" />
+    <None Include="DOC\GRAPH\Презентация_Жгуновский.pptx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -135,6 +145,12 @@
     <Resource Include="DBPlan.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="DOC BD\index.txt" />
+    <Resource Include="DOC BD\readme.txt" />
+    <Resource Include="DOC\EXE\ReadMe.txt" />
+    <Resource Include="DOC\index.txt" />
+    <Resource Include="DOC\PRG\ReadMe.txt" />
+    <Resource Include="DOC\readme.txt" />
     <Resource Include="52152fc3aecbc53ed3827d0661170849_2.ico" />
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
@@ -147,7 +163,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="~~DOC~~\" />
+    <Folder Include="DOC BD\EXE\" />
+    <Folder Include="DOC BD\PRG\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
